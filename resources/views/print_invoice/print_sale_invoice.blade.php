@@ -266,7 +266,8 @@
 </tr>
 <!-- 5nd Row -->
 <tr>
-	<td colspan="12" style="padding-top: 20px;"></td>
+	<td colspan="12" style="padding-top: 20px;">
+    <strong><?php echo DNS2D::getBarcodeHTML(@$base64, 'QRCODE', 3,3);?> </strong></td>
 </tr>
 <!-- 5nd Row -->
 <!-- 6nd Row -->

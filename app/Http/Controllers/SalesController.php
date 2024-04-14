@@ -14,6 +14,7 @@ use App\Models\SalePayment;
 use App\Models\SalePaymentDetail;
 use App\Services\SaleService;
 use Exception;
+use App\ZatcaWrapper\ZatcaWrapper;
 
 class SalesController extends Controller
 {
@@ -216,7 +217,23 @@ class SalesController extends Controller
             $saleitmesAddons = unserialize($saleInvoice['items_addon']);
             $customerBalance = ($this->totalAmount($saleInvoice['customer_id']) + $this->customerDebitAmount($saleInvoice['customer_id'])) - ($this->advanceAmount($saleInvoice['customer_id']) + $this->customerCreditAmount($saleInvoice['customer_id']));
             // echo "<pre>"; print_r($customerBalance); exit();
-            return view('print_invoice.print_sale_invoice', compact('print_footer', 'saleInvoice', 'saleitmesAddons', 'customerBalance'));
+            $base64 = (new ZatcaWrapper())
+            ->sellerName('Irfan')
+            ->vatRegistrationNumber("300456416500003")
+            ->timestamp("2021-12-01T14:00:09Z")
+            ->totalWithVat('100.00')
+            ->vatTotal('15.00')
+            ->csrCommonName('irfan')
+            ->csrSerialNumber('123456789')
+            ->csrOrganizationIdentifier('0686')
+            ->csrOrganizationUnitName('IT')
+            ->csrOrganizationName('OutSeller')
+            ->csrCountryName('Pakistan')
+            ->csrInvoiceType('Sell')
+            ->csrLocationAddress('Pakistan')
+            ->csrIndustryBusinessCategory('IT Industry')
+            ->toBase64();
+            return view('print_invoice.print_sale_invoice', compact('print_footer', 'saleInvoice', 'saleitmesAddons', 'customerBalance','base64'));
         } catch (Exception $e) {
             Session::flash('flash_message_error', "Oops, Something went wrong. Try again");
             return redirect()->back()->with($e->getMessage());
