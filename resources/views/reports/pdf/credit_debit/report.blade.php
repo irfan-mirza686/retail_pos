@@ -149,8 +149,8 @@ use App\Models\CustomerOpeningBalance;
 <body class="A5">
 	<center style=" width: 500px; margin: 0px auto;">
 		@if($sale_type=='customerWise')
-		<span style="font-size: 12px; font-weight: bold;">Muhammad Haseeb</span>
-		<span class="p-text">Dilazak Road, bilmuqabil Darya High School Peshawar. Tel: {{Auth::user()->mobile}}</span><br>
+		<span style="font-size: 12px; font-weight: bold;">{{ Auth::user()->name }}</span>
+		<span class="p-text">{{ Auth::user()->address }}. Tel: {{Auth::user()->mobile}}</span><br>
 
 
 			<table class="table-suply" width="100%" cellspacing="0" cellpadding="0">

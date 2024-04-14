@@ -70,8 +70,8 @@
 						<tr>
 							<!-- company address -->
 							<td style="font-size: 10px; width: 50%;">
-								<span style="font-size: 12px; font-weight: bold;">Muhammad Haseeb</span>
-                                Dilazak Road, bilmuqabil Darya High School Peshawar. Tel: {{ Auth::user()->mobile }}
+								<span style="font-size: 12px; font-weight: bold;">{{ Auth::user()->name }}</span>
+                                {{ Auth::user()->address }}. Tel: {{ Auth::user()->mobile }}
 
 								<!-- company address -->
 								<hr style=" width: 100%; border-color: #000000;"></hr>
@@ -280,7 +280,7 @@
 			<!-- 14nd Row -->
 			<!-- 15nd Row -->
 			<tr>
-				<td colspan="12"><b>Muhammad Haseeb, </b></td>
+				<!-- <td colspan="12"><b>Muhammad Haseeb, </b></td> -->
 			</tr>
 			<!-- 15nd Row -->
 			<!-- 16nd Row -->
@@ -290,7 +290,7 @@
 			<!-- 16nd Row -->
 			<!-- 17nd Row -->
 			<tr>
-				<td colspan="12" style="font-size: small;">(Owner)</td>
+				<!-- <td colspan="12" style="font-size: small;">(Owner)</td> -->
 			</tr>
 			<!-- 17nd Row -->
 		</table>
