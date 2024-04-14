@@ -6,7 +6,9 @@
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
   	<meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
   	<!-- <title>Document</title> -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   	<style>
+
   	body {
   		font-family: Geneva, Verdana, sans-serif;
   	}
@@ -156,8 +158,8 @@
 						<!-- company address -->
 
 						<td   style="font-size: 10px; paddding: 0px; width: 40%;">
-							<span style="font-size: 12px; font-weight: bold;">Muhammad Haseeb</span>
-							Dilazak Road, bilmuqabil Darya High School Peshawar. Tel: {{ Auth::user()->mobile }}
+							<span style="font-size: 12px; font-weight: bold;">{{ Auth::user()->name }}</span>
+							{{ Auth::user()->address }}. Tel: {{ Auth::user()->mobile }}
 							<!-- company address -->
 							<hr style=" width: 100%; border-color: #000000;">
 
@@ -237,27 +239,27 @@
 				<td colspan="2">{{$addons['productName']}}</td>
 				<td colspan="3">{{$addons['selling_price']}}</td>
 				<td colspan="3">{{$addons['quantity']}} - {{$addons['unit']}}</td>
-				<td colspan="3">{{number_format($addons['amount'],2)}}</td>
+				<td colspan="3" class="text-right">{{number_format($addons['amount'],2)}}</td>
 			</tr>
 			@endforeach
 			@if($saleInvoice['discount']>0)
 			<tr>
-				<td colspan="9" align="center"><b>Discount</b></td>
-				<td colspan="3" align="right">{{number_format($saleInvoice['discount'],2)}}</td>
+				<td colspan="9" class="text-left"><b>Discount</b></td>
+				<td colspan="3" class="text-right">{{number_format($saleInvoice['discount'],2)}}</td>
 			</tr>
 			@endif
 			<tr>
-				<td colspan="9" align="center"><b>Total Amount</b></td>
-				<td colspan="3" align="right">{{number_format($saleInvoice['amount'],2)}}</td>
+				<td colspan="9" class="text-left"><b>Total Amount</b></td>
+				<td colspan="3" class="text-right">{{number_format($saleInvoice['amount'],2)}}</td>
 			</tr>
 			<?php $previous_balance = $customerBalance - $saleInvoice['amount']; ?>
 			<tr>
-				<td colspan="9" align="center"><b>Previous Balance</b></td>
-				<td colspan="3" align="right">{{(@$previous_balance<0)?(-1)*$previous_balance. ' CR':$previous_balance. ' DB'}}</td>
+				<td colspan="9" class="text-left"><b>Previous Balance</b></td>
+				<td colspan="3" class="text-right">{{(@$previous_balance<0)?(-1)*$previous_balance. ' CR':$previous_balance. ' DB'}}</td>
 			</tr>
 			<tr>
-				<td colspan="9" align="center"><b>Total Balance</b></td>
-				<td colspan="3" align="right"><b>{{(@$customerBalance<0)?(-1)*$customerBalance. ' CR':$customerBalance. ' DB'}}</b></td>
+				<td colspan="9" class="text-left"><b>Total Balance</b></td>
+				<td colspan="3" class="text-right"><b>{{(@$customerBalance<0)?(-1)*$customerBalance. ' CR':$customerBalance. ' DB'}}</b></td>
 			</tr>
 			<!-- Table content row 1 -->
 		</table>
@@ -266,7 +268,13 @@
 </tr>
 <!-- 5nd Row -->
 <tr>
-	<td colspan="12" style="padding-top: 20px;">
+	<td colspan="12" align="center"  width="100%" style="padding-top: 20px;"></td>
+</tr>
+<tr>
+	<td colspan="12" align="center"  width="100%" style="padding-top: 20px;"></td>
+</tr>
+<tr>
+	<td colspan="5" align="center" style="padding-top: 20px;">
     <strong><?php echo DNS2D::getBarcodeHTML(@$base64, 'QRCODE', 3,3);?> </strong></td>
 </tr>
 <!-- 5nd Row -->
@@ -274,9 +282,7 @@
 
 <!-- 6nd Row -->
 <!-- 7nd row -->
-<tr>
-	<td colspan="12"  width="100%" style="padding-top: 20px;"></td>
-</tr>
+
 <!-- 7nd row -->
 <!-- 8nd row -->
 
@@ -290,12 +296,12 @@
 
 <tr>
 	<th colspan="12" align="left">
-    Muhammad Haseeb
+
 	</th>
 </tr> <!-- 12nd Row -->
 <tr>
 	<td colspan="12"  style="font-size: small;">
-		(Owner)
+
 	</td>
 </tr> <!-- 12nd Row -->
 
