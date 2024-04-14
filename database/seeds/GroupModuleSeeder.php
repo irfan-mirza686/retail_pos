@@ -83,7 +83,7 @@ class GroupModuleSeeder extends Seeder
                 'module_name' => 'Reports',
                 'module_page' => 'reports'
             ],
-            
+
         ];
         GroupModule::insert($groupModule);
     }

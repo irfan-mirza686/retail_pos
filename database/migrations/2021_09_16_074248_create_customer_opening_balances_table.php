@@ -15,8 +15,10 @@ class CreateCustomerOpeningBalancesTable extends Migration
     {
         Schema::create('customer_opening_balances', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('invoice_no');
             $table->date('date');
             $table->integer('customer_id');
+            $table->integer('area_id');
             $table->string('type');
             $table->string('description')->nullable();
             $table->float('amount');
