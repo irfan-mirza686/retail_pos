@@ -33,7 +33,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            
+
             </ul>
           </div>
             <table id="example1" class="table table-bordered table-striped table-sm">
@@ -68,10 +68,10 @@
                   <td class="text-center">{{ $product['cost']}}</td>
                   <td class="text-center">{{ $product['selling_price']}}</td>
                     <td>
-                      {{ $product['users']['name']}}
+                      {{ @$product['users']['name']}}
                     </td>
-                    
-                  
+
+
                   <td class="center">
                     <ul class="navbar-nav ml-auto">
                       <!-- Notifications Dropdown Menu -->
@@ -93,14 +93,14 @@
                         </div>
                       </li>
                     </ul>
-                    
-                    
+
+
                   </td>
                 </tr>
                 @endforeach
 
               </tbody>
-              
+
             </table>
           </div>
           <!-- /.card-body -->

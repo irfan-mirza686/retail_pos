@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,9 +12,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('login');
-// });
+Route::get('/', function () {
+    return view('login');
+});
 
 Auth::routes();
 
@@ -29,9 +30,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 //    echo "cache cleared";
 // });
 
-Route::post('/login','AdminController@login');
+Route::post('/login','AdminController@login')->name('login');
+Route::post('login/member','AdminController@loginMember')->name('login.member');
+Route::post('check/email','AdminController@checkEmail')->name('check.email');
 
-Route::group(['middleware' => ['auth']], function() {
+// Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/dashboard','AdminController@dashboard')->name('dashboard');
     Route::get('/logout','AdminController@logout');
@@ -229,5 +232,5 @@ Route::group(['middleware' => ['auth']], function() {
 
     });
     /* Reports Controllers Starts Here */
-});
+// });
 

@@ -2,7 +2,7 @@
 @section('title', '| Dashboard')
 @section('content')
 
-<?php 
+<?php
 use App\Models\GroupPermission;
 use App\Models\EmployeeReturnAdvance;
 use App\Models\AdvanceHistory;
@@ -72,7 +72,7 @@ $suppliersCash = ($supplierDebitAmount   + $supplierPaymets) - ($purchaseAmount 
       <div class="col-sm-4">
         <h1 class="m-0 text-dark">Dashboard</h1><small>Overall Information on Single Screen</small>
       </div><!-- /.col -->
-      
+
       <div class="col-sm-4">
 
         <!-- <div class="color-palette-set">
@@ -93,7 +93,7 @@ $suppliersCash = ($supplierDebitAmount   + $supplierPaymets) - ($purchaseAmount 
 <!-- /.content-header -->
 
 <!-- Main content -->
-@if($permissionCheck->access == 1)
+
 <section class="content">
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
@@ -113,7 +113,7 @@ $suppliersCash = ($supplierDebitAmount   + $supplierPaymets) - ($purchaseAmount 
        </div>
        <!-- /.info-box -->
      </div>
-     <?php 
+     <?php
      $total_cash = ($returnTotalAmount + $suppliersCash + $customersCash) - ($total_expenses);
      ?>
       <div class="col-12 col-sm-6 col-md-3">
@@ -265,7 +265,7 @@ $suppliersCash = ($supplierDebitAmount   + $supplierPaymets) - ($purchaseAmount 
         <th>Remaining Amount </th>
       </thead>
       <tbody>
-        <?php 
+        <?php
 
         /* Calculate Monthly Advance */
         function testinggetMonthlySalary($employee_id){
@@ -278,7 +278,7 @@ $suppliersCash = ($supplierDebitAmount   + $supplierPaymets) - ($purchaseAmount 
           }
           return $empAdvance;
         }
-        /* Calculate Monthly Advance */   
+        /* Calculate Monthly Advance */
 
         /* Calculate Monthly Return Advacne */
         function returnMonthlySalary($employee_id){
@@ -313,7 +313,7 @@ $suppliersCash = ($supplierDebitAmount   + $supplierPaymets) - ($purchaseAmount 
         ?>
       </tbody>
     </table>
-    
+
   </div>
   <div class="col-sm-12 col-md-6" style="width: 400px;height: 400px;margin: auto;">
     <div >
@@ -328,7 +328,7 @@ $suppliersCash = ($supplierDebitAmount   + $supplierPaymets) - ($purchaseAmount 
 <!-- /.row (main row) -->
 </div><!-- /.container-fluid -->
 </section>
-@endif
+
 
 <!-- /.content -->
 </div>
@@ -418,7 +418,7 @@ $suppliersCash = ($supplierDebitAmount   + $supplierPaymets) - ($purchaseAmount 
       }
     }
 
-    
+
 
   });
 </script>

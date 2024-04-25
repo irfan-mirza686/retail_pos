@@ -10,7 +10,7 @@
 			<div class="row mb-2">
 				<div class="col-sm-6">
 				</div>
-				
+
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="{{ url('/home')}}">Dashboard</a></li>
@@ -40,8 +40,8 @@
 			<!-- SELECT2 EXAMPLE -->
 			<form name="gateForm" id="gateForm" action="{{(@$editProduct)?url('edit-product/'.$editProduct['id']):url('/add-product') }}"  method="post">
 				@csrf
-				
-				
+
+
 				<!-- Start another Card Here--------->
 				<div class="card card-dark">
 					<div class="card-header">
@@ -52,6 +52,20 @@
 					<!-- form start -->
 					<form class="form-horizontal">
 						<div class="card-body box-profile">
+                        <div class="form-group row">
+								<label for="productTypes" class="col-sm-2 col-form-label">Product Type <font style="color: red;">*</font></label>
+								<div class="col-sm-10">
+									<select name="product_type" id="product_type" class="form-control select2" required="" style="width: 100%;">
+										<option selected="selected" readonly="" value="0">-select-</option>
+
+										<option value="gs1" {{(@$editProduct['product_type']=='gs1')?'selected':''}}>GS1</option>
+										<option value="non_gs1" {{(@$editProduct['product_type']=='non_gs1')?'selected':''}}>Non GS1</option>
+
+
+									</select>
+
+								</div>
+							</div>
 							<div class="form-group row">
 								<label for="inputProductName" class="col-sm-2 col-form-label">Product Name <font style="color: red;">*</font></label>
 								<div class="col-sm-10">
@@ -71,7 +85,7 @@
 
 								</div>
 							</div>
-							
+
 							<div class="form-group row">
 								<label for="inputProductCost" class="col-sm-2 col-form-label">Purchase Price <font style="color: red;">*</font></label>
 								<div class="col-sm-10">
@@ -96,11 +110,18 @@
 									<input type="text" class="form-control" name="product_code" placeholder="Product Code" id="product_code" required="" value="{{(@$editProduct)?$editProduct['product_code']:old('product_code') }}">
 								</div>
 							</div>
+
+                            <div class="form-group row gs1" style="display: none;">
+								<label for="size" class="col-sm-2 col-form-label">Size <font style="color: red;">*</font></label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="size" placeholder="Size" id="size" value="{{(@$editProduct)?$editProduct['cost']:old('cost') }}">
+								</div>
+							</div>
 						</div>
 						<!-- /.card-body -->
 						<div class="card-footer">
 							<button type="submit" class="btn btn-info">{{ $title }}</button>
-							
+
 							<a href="{{'/dashboard'}}"  class="btn btn-warning float-right">Cancel</a>
 						</div>
 						<!-- /.card-footer -->
@@ -147,3 +168,7 @@
 	});
 </script> -->
 @endsection
+
+@push('custom-script')
+<script src="{{asset('js/products/product.js')}}"></script>
+@endpush

@@ -1,3 +1,4 @@
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/dashboard') }}" class="brand-link">
@@ -14,7 +15,7 @@
           <img src="{{ asset('images/avatar5.png') }}" class="img-circle elevation-2" alt="User Image" style="height: 40px; width: 45px;">
         </div>
         <div class="info">
-          <a href="{{ url('/user-profile') }}" class="d-block">&nbsp;&nbsp; {{ Auth::user()->name }}</a>
+          <a href="{{ url('/user-profile') }}" class="d-block">&nbsp;&nbsp; {{ $user_info['memberData']['company_name_eng'] }}</a>
         </div>
       </div>
 
