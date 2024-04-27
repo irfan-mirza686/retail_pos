@@ -1,0 +1,2 @@
+<?php
+$timezone = 'Asia/Riyadh';
